@@ -34,9 +34,9 @@ public class WebSocketScheduleTask {
 
     @Scheduled(cron = "*/3 * * * * ?")
     public void configureTasks() {
-        Integer count = webSocketMapper.selectCount();
-        logger.info("===============>总统计数: " + count);
-        webSocketServer.sendMessage("+++++++++实时推送的消息++++++"+ count);
-        logger.info("===============>执行静态定时任务时间: " + LocalDateTime.now());
+//        Integer count = webSocketMapper.selectCount();
+//        logger.info("===============>总统计数: " + count);
+//        webSocketServer.sendMessage("+++++++++实时推送的消息++++++"+ count);
+//        logger.info("===============>执行静态定时任务时间: " + LocalDateTime.now());
     }
 }

@@ -2,7 +2,9 @@ package com.yue.websocket.sever;
 
 import javax.websocket.*;
 
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.collections4.MapUtils;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.OnClose;
@@ -24,7 +26,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Version: 1.0
  */
 @Slf4j
-@ServerEndpoint("/webSocket")
+@ServerEndpoint("/webSocket/{param}")
 @Component
 public class WebSocketServer {
     /**
@@ -42,6 +44,10 @@ public class WebSocketServer {
      */
     @OnOpen
     public void onOpen(Session session) {
+        Map<String, String> parameters = session.getPathParameters();
+        String param = MapUtils.getString(parameters, "param");
+        log.info("=========>参数：{}", param);
+
         onlineCount.incrementAndGet(); // 在线数加1
         clients.put(session.getId(), session);
         log.info("有新连接加入：{}，当前在线人数为：{}", session.getId(), onlineCount.get());

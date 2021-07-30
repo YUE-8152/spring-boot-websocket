@@ -39,16 +39,16 @@ public class InsertScheduleTask {
     @Scheduled(cron = "*/10 * * * * ?")
     @Transactional(rollbackFor = Exception.class)
     public void configureTasks() {
-        Map<String,Object> map = new HashMap<>();
-        map.put("merCode","100000");
-        map.put("storeId",8);
-        map.put("childMerCode","10000001");
-        map.put("mealTime",new Random(10)+"");
-        map.put("createTime","2021-07-30 10:12:00");
-        map.put("createUser","Admin");
-        map.put("updateTime","2021-07-30 10:12:00");
-        map.put("updateUser","Admin");
-        webSocketMapper.insert(map);
-        logger.info("===============>插入数据成功: " + LocalDateTime.now());
+//        Map<String,Object> map = new HashMap<>();
+//        map.put("merCode","100000");
+//        map.put("storeId",8);
+//        map.put("childMerCode","10000001");
+//        map.put("mealTime",new Random(10)+"");
+//        map.put("createTime","2021-07-30 10:12:00");
+//        map.put("createUser","Admin");
+//        map.put("updateTime","2021-07-30 10:12:00");
+//        map.put("updateUser","Admin");
+//        webSocketMapper.insert(map);
+//        logger.info("===============>插入数据成功: " + LocalDateTime.now());
     }
 }
