@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yue.websocket.mapper.WebSocketMapper">
+    <insert id="insert"  useGeneratedKeys="true"
+            keyProperty="id">
+        insert into ws_test
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="merCode != null and merCode !=''">
+                mer_code,
+            </if>
+            <if test="childMerCode != null and childMerCode !=''">
+                child_mer_code,
+            </if>
+            <if test="storeId != null and storeId !=''">
+                store_id,
+            </if>
+            <if test="mealTime != null and mealTime !=''">
+                meal_time,
+            </if>
+            <if test="createTime != null and createTime !=''">
+                create_time,
+            </if>
+            <if test="createUser != null and createUser !=''">
+                create_user,
+            </if>
+            <if test="updateTime != null and updateTime !=''">
+                update_time,
+            </if>
+            <if test="updateUser != null and updateUser !=''">
+                update_user
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="merCode != null and merCode !=''">
+                #{merCode,jdbcType=VARCHAR},
+            </if>
+            <if test="childMerCode != null and childMerCode !=''">
+                #{childMerCode,jdbcType=VARCHAR},
+            </if>
+            <if test="storeId != null and storeId !=''">
+                #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="mealTime != null and mealTime !=''">
+                #{mealTime,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="createTime != null and createTime !=''">
+                #{createTime,jdbcType=VARCHAR},
+            </if>
+            <if test="createUser != null and createUser !=''">
+                #{createUser,jdbcType=VARCHAR},
+            </if>
+            <if test="updateTime != null and updateTime !=''">
+                #{updateTime,jdbcType=VARCHAR},
+            </if>
+            <if test="updateUser != null and updateUser !=''">
+                #{updateUser,jdbcType=VARCHAR}
+            </if>
+        </trim>
+    </insert>
+
+    <select id="selectCount" resultType="java.lang.Integer">
+        select count(id) from ws_test
+    </select>
+</mapper>
